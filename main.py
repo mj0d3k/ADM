@@ -7,7 +7,7 @@ def format_list_right(input_list):
     for row in input_list:
         formatted_string += "["
         for i, num in enumerate(row):
-            formatted_string += f"{str(num):>{max_lengths[i]}}"
+            formatted_string += f"{str(num):<{max_lengths[i]}}"
             if i != len(row) - 1:
                 formatted_string += ", "
         if indeks != dlugosc:
@@ -20,3 +20,6 @@ def format_list_right(input_list):
 input_list = [[1, 2, 10, 150], [10, 2, 1000, 2], [1, 120, 1, 1000]]
 formatted_string = format_list_right(input_list)
 print(formatted_string)
+
+assert format_list_right([[1]]) == [1]
+assert format_list_right([[1], [2]]) == [[1], [2]]
