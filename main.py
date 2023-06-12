@@ -1,5 +1,6 @@
 import math
 
+
 # moduł B
 def find_square_vertex(lista):
     p12 = math.sqrt(((lista[1][0] - lista[0][0]) ** 2) + (lista[1][1] - lista[0][1]) ** 2)
@@ -83,7 +84,7 @@ def format_list_left(input_list):
     return formatted_string
 
 
-# testy
+# testy moduł A
 
 example = [[19900, 5, 120, 1150], [155, 1, 12000, 8992], [3, 12, 455, 100]]
 result = """[[19900,  5,   120, 1150],
@@ -120,6 +121,8 @@ result = """[[656,   231, 231,    50 ],
  [12132, 6,   242334, 992],
  [76,    6,   2,      992]]"""
 assert format_list_left(example) == result
+
+# testy moduł B
 
 example = [[1, 1], [4, 4], [4, 1]]
 result = [1, 4]
