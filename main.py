@@ -1,6 +1,6 @@
 import math
 
-
+# moduł B
 def find_square_vertex(lista):
     p12 = math.sqrt(((lista[1][0] - lista[0][0]) ** 2) + (lista[1][1] - lista[0][1]) ** 2)
     p13 = math.sqrt(((lista[2][0] - lista[0][0]) ** 2) + (lista[2][1] - lista[0][1]) ** 2)
@@ -41,7 +41,7 @@ def find_triangle_vertex(lista):
     return [[x3v1, y3v1], [x3v2, y3v2]]
 
 
-# moduł A lewa strona
+# moduł A
 def format_list_right(l: list) -> str:
     output = ""
     max_lengths = [max(map(len, map(str, col))) for col in zip(*l)]
