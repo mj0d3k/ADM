@@ -1,18 +1,20 @@
 import math
 from uuid import RFC_4122
+
+
 def find_square_vertex(lista):
-    p12 = math.sqrt(((lista[1][0]-lista[0][0])**2)+(lista[1][1]-lista[0][1])**2) 
-    p13 = math.sqrt(((lista[2][0]-lista[0][0])**2)+(lista[2][1]-lista[0][1])**2) 
-    p23 = math.sqrt(((lista[1][0]-lista[2][0])**2)+(lista[1][1]-lista[2][1])**2) 
+    p12 = math.sqrt(((lista[1][0] - lista[0][0]) ** 2) + (lista[1][1] - lista[0][1]) ** 2)
+    p13 = math.sqrt(((lista[2][0] - lista[0][0]) ** 2) + (lista[2][1] - lista[0][1]) ** 2)
+    p23 = math.sqrt(((lista[1][0] - lista[2][0]) ** 2) + (lista[1][1] - lista[2][1]) ** 2)
     P1 = []
     P2 = []
     P3 = []
-    P4 = [0,0]
-    if p12>p13 and p12>p23:
+    P4 = [0, 0]
+    if p12 > p13 and p12 > p23:
         P1 = lista[2]
         P2 = lista[0]
         P3 = lista[1]
-    elif p13>p12 and p13>p23:
+    elif p13 > p12 and p13 > p23:
         P1 = lista[1]
         P2 = lista[0]
         P3 = lista[2]
@@ -20,16 +22,19 @@ def find_square_vertex(lista):
         P1 = lista[0]
         P2 = lista[1]
         P3 = lista[2]
-    
-    indeks1 = P2[0]+P3[0]-P1[0]
-    indeks2 = P2[1]+P3[1]-P1[1]
+
+    indeks1 = P2[0] + P3[0] - P1[0]
+    indeks2 = P2[1] + P3[1] - P1[1]
     P4[0] = indeks1
     P4[1] = indeks2
 
-    #d = {'p12': p12, 'p13':p13}
+    # d = {'p12': p12, 'p13':p13}
 
     return P4
-print(find_square_vertex([[1,1], [2,3], [4,2]]))
+
+
+print(find_square_vertex([[1, 1], [2, 3], [4, 2]]))
+
 
 # moduł A lewa strona
 def format_list_right(l: list) -> str:
@@ -71,6 +76,7 @@ def format_list_left(input_list):
             formatted_string += "]]"
         indeks += 1
     return formatted_string
+
 
 l = [[1, 2, 10, 150], [10, 2, 1000, 2], [1, 120, 1, 1000]]
 output = format_list_left(l)
@@ -114,3 +120,14 @@ result = """[[656,   231, 231,    50 ],
  [76,    6,   2,      992]]"""
 assert format_list_left(example) == result
 
+example = [[1, 1], [4, 4], [4, 1]]
+result = [1, 4]
+assert find_square_vertex(example) == result
+
+example = [[5, 1], [6, -1], [3, 0]]
+result = [4, -2]
+assert find_square_vertex(example) == result
+
+example = [[-2, 1], [1, 4], [1, -2]]
+result = [4, 1]
+assert find_square_vertex(example) == result
