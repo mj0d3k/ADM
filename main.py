@@ -22,7 +22,7 @@ def find_square_vertex(lista):
         P3 = lista[2]
     
     indeks1 = P2[0]+P3[0]-P1[0]
-    indeks2 = P2[0]+P3[0]-P1[0]
+    indeks2 = P2[1]+P3[1]-P1[1]
     P4[0] = indeks1
     P4[1] = indeks2
 
