@@ -1,5 +1,6 @@
 import math
 
+
 def find_square_vertex(lista):
     p12 = math.sqrt(((lista[1][0] - lista[0][0]) ** 2) + (lista[1][1] - lista[0][1]) ** 2)
     p13 = math.sqrt(((lista[2][0] - lista[0][0]) ** 2) + (lista[2][1] - lista[0][1]) ** 2)
@@ -31,18 +32,15 @@ def find_square_vertex(lista):
     return P4
 
 
-print(find_square_vertex([[1, 1], [2, 3], [4, 2]]))
-
-
 def find_triangle_vertex(lista):
-    x3v1=(lista[0][0] + lista[1][0] + math.sqrt(3)*(lista[0][1]-lista[1][1]))/2
-    y3v1=(lista[0][1] + lista[1][1] + math.sqrt(3)*(lista[1][0] - lista[0][0]))/2
-    x3v2=(lista[0][0] + lista[1][0] + math.sqrt(3)*(lista[1][1]-lista[0][1]))/2
-    y3v2=(lista[0][1] + lista[1][1] + math.sqrt(3)*(lista[0][0] - lista[1][0]))/2
+    x3v1 = (lista[0][0] + lista[1][0] + math.sqrt(3) * (lista[0][1] - lista[1][1])) / 2
+    y3v1 = (lista[0][1] + lista[1][1] + math.sqrt(3) * (lista[1][0] - lista[0][0])) / 2
+    x3v2 = (lista[0][0] + lista[1][0] + math.sqrt(3) * (lista[1][1] - lista[0][1])) / 2
+    y3v2 = (lista[0][1] + lista[1][1] + math.sqrt(3) * (lista[0][0] - lista[1][0])) / 2
 
-    return [[x3v1,y3v1],[x3v2,y3v2]]
-print(find_triangle_vertex([[0,0], [2,0]]))
-#v3 = ( (x1 + x2 + Sqrt[3] (y1 - y2) )/2, (y1 + y2 + Sqrt[3] (x2 - x1) )/2).
+    return [[x3v1, y3v1], [x3v2, y3v2]]
+
+
 # moduł A lewa strona
 def format_list_right(l: list) -> str:
     output = ""
@@ -84,10 +82,6 @@ def format_list_left(input_list):
         indeks += 1
     return formatted_string
 
-
-l = [[1, 2, 10, 150], [10, 2, 1000, 2], [1, 120, 1, 1000]]
-output = format_list_left(l)
-print(output)
 
 # testy
 
@@ -138,3 +132,28 @@ assert find_square_vertex(example) == result
 example = [[-2, 1], [1, 4], [1, -2]]
 result = [4, 1]
 assert find_square_vertex(example) == result
+
+example = [[-2, 1], [1, 4], [1, -2]]
+result = [4, 1]
+assert find_square_vertex(example) == result
+
+example = find_triangle_vertex([[0, 0], [2, 0]])
+for index, i in enumerate(example):
+    for index2, j in enumerate(i):
+        example[index][index2] = round(j, 2)
+result = [[1.0, 1.73], [1.0, -1.73]]
+assert example == result
+
+example = find_triangle_vertex([[3, 1], [5, 3]])
+for index, i in enumerate(example):
+    for index2, j in enumerate(i):
+        example[index][index2] = round(j, 2)
+result = [[2.27, 3.73], [5.73, 0.27]]
+assert example == result
+
+example = find_triangle_vertex([[-1, 2], [2, -1]])
+for index, i in enumerate(example):
+    for index2, j in enumerate(i):
+        example[index][index2] = round(j, 2)
+result = [[3.1, 3.1], [-2.1, -2.1]]
+assert example == result
