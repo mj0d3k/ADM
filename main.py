@@ -19,7 +19,27 @@ def format_list_right(l: list) -> str:
     return output
 
 
-l = [[1, 2, 10, 150], [10, 2, 1000, 2], [1, 120, 1, 1000]]
+def format_list_left(input_list):
+    formatted_string = ""
+    max_lengths = [max(map(len, map(str, col))) for col in zip(*input_list)]
+    dlugosc = len(input_list)
+    indeks = 1
+    formatted_string += "["
+    for row in input_list:
+        formatted_string += "["
+        for i, num in enumerate(row):
+            if i + 1 != len(row):
+                formatted_string += f"{str(num) + ', ':<{max_lengths[i] + 2}}"
+            elif i + 1 == len(row):
+                formatted_string += f"{str(num):<{max_lengths[i]}}"
+        if indeks != dlugosc:
+            formatted_string += "],\n "
+        else:
+            formatted_string += "]]"
+        indeks += 1
+    return formatted_string
+
+l = [[1, 2, 10, 150], [10, 2, 2, 2], [1, 120, 1, 100]]
 output = format_list_right(l)
 print(output)
 
