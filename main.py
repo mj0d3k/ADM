@@ -1,3 +1,35 @@
+import math
+from uuid import RFC_4122
+def find_square_vertex(lista):
+    p12 = math.sqrt(((lista[1][0]-lista[0][0])**2)+(lista[1][1]-lista[0][1])**2) 
+    p13 = math.sqrt(((lista[2][0]-lista[0][0])**2)+(lista[2][1]-lista[0][1])**2) 
+    p23 = math.sqrt(((lista[1][0]-lista[2][0])**2)+(lista[1][1]-lista[2][1])**2) 
+    P1 = []
+    P2 = []
+    P3 = []
+    P4 = [0,0]
+    if p12>p13 and p12>p23:
+        P1 = lista[2]
+        P2 = lista[0]
+        P3 = lista[1]
+    elif p13>p12 and p13>p23:
+        P1 = lista[1]
+        P2 = lista[0]
+        P3 = lista[2]
+    else:
+        P1 = lista[0]
+        P2 = lista[1]
+        P3 = lista[2]
+    
+    indeks1 = P2[0]+P3[0]-P1[0]
+    indeks2 = P2[0]+P3[0]-P1[0]
+    P4[0] = indeks1
+    P4[1] = indeks2
+
+    #d = {'p12': p12, 'p13':p13}
+
+    return P4
+print(find_square_vertex([[1,1], [2,3], [4,2]]))
 
 # moduł A lewa strona
 def format_list_right(l: list) -> str:
