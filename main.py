@@ -1,5 +1,5 @@
 import math
-from uuid import RFC_4122
+
 def find_square_vertex(lista):
     p12 = math.sqrt(((lista[1][0]-lista[0][0])**2)+(lista[1][1]-lista[0][1])**2) 
     p13 = math.sqrt(((lista[2][0]-lista[0][0])**2)+(lista[2][1]-lista[0][1])**2) 
@@ -31,6 +31,15 @@ def find_square_vertex(lista):
     return P4
 print(find_square_vertex([[1,1], [2,3], [4,2]]))
 
+def find_triangle_vertex(lista):
+    x3v1=(lista[0][0] + lista[1][0] + math.sqrt(3)*(lista[0][1]-lista[1][1]))/2
+    y3v1=(lista[0][1] + lista[1][1] + math.sqrt(3)*(lista[1][0] - lista[0][0]))/2
+    x3v2=(lista[0][0] + lista[1][0] + math.sqrt(3)*(lista[1][1]-lista[0][1]))/2
+    y3v2=(lista[0][1] + lista[1][1] + math.sqrt(3)*(lista[0][0] - lista[1][0]))/2
+
+    return [[x3v1,y3v1],[x3v2,y3v2]]
+print(find_triangle_vertex([[0,0], [2,0]]))
+#v3 = ( (x1 + x2 + Sqrt[3] (y1 - y2) )/2, (y1 + y2 + Sqrt[3] (x2 - x1) )/2).
 # moduł A lewa strona
 def format_list_right(l: list) -> str:
     output = ""
